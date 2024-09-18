@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .login-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .login-container h2 {
+            margin-top: 0;
+        }
+        .login-container select, .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .login-container button:hover {
+            background-color: #45a049;
+        }
+        .login-form {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login Page</h2>
+        <select id="role-select" onchange="toggleLoginForm()">
+            <option value="">Select Role</option>
+            <option value="admin">Admin</option>
+            <option value="student">Student</option>
+        </select>
+
+        <div id="admin-form" class="login-form">
+            <h3>Admin Login</h3>
+            <input type="text" id="admin-username" placeholder="Admin Username" />
+            <input type="password" id="admin-password" placeholder="Password" />
+            <button onclick="adminLogin()">Login as Admin</button>
+        </div>
+
+        <div id="student-form" class="login-form">
+            <h3>Student Login</h3>
+            <input type="text" id="student-username" placeholder="Student Username" />
+            <input type="password" id="student-password" placeholder="Password" />
+            <button onclick="studentLogin()">Login as Student</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleLoginForm() {
+            const role = document.getElementById('role-select').value;
+            document.getElementById('admin-form').style.display = role === 'admin' ? 'block' : 'none';
+            document.getElementById('student-form').style.display = role === 'student' ? 'block' : 'none';
+        }
+
+        function adminLogin() {
+            // Admin login logic here
+            alert('Admin login clicked');
+        }
+
+        function studentLogin() {
+            // Student login logic here
+            alert('Student login clicked');
+        }
+    </script>
+</body>
+</html>
